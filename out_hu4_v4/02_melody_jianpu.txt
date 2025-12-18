@@ -1,0 +1,14 @@
+# Key: Fmaj (confidence=0.009)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+1,	221ms
+1,	255ms
+C#3	279ms
+5,	290ms
+6,	255ms
+G#2	650ms
+4,,	372ms
+6,	255ms
+1,	302ms
+6,	279ms
+5,	778ms

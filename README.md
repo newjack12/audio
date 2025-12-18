@@ -63,8 +63,8 @@ python -m melody_app.cli <你的音频文件> --out out_dir --mode voice --engin
 - **人声/哼唱（推荐）**：
 
 ```bash
-python -m melody_app.cli test-si1.m4a --mode voice --engine auto --chords none --out out_si1auto
- python -m melody_app.cli test-si1.m4a --mode voice --engine pyin --out out_si1
+python -m melody_app.cli test-hu4.m4a --mode voice --engine auto --chords none --out out_hu4_v3
+ python -m melody_app.cli test-hu4.m4a --mode voice --engine pyin --out out_hu4_v4
 
 
 ```

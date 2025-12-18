@@ -1,0 +1,16 @@
+# Key: C#min (confidence=0.026)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+3,	610ms
+1,	320ms
+7,,	330ms
+D3	290ms
+6,,	210ms
+G2	330ms
+A#2	420ms
+C3	220ms
+D3	310ms
+3,	200ms
+4,	150ms
+2,	350ms
+1,	790ms
