@@ -1,0 +1,39 @@
+# Key: Amin (confidence=0.036)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+7,,	90ms
+1,,	580ms
+A#2	160ms
+3,	350ms
+5,,	360ms
+7,,	100ms
+G#2	130ms
+7,,	200ms
+A#2	260ms
+3,	250ms
+5,,	100ms
+6,,	240ms
+G#2	330ms
+A#2	360ms
+3,	750ms
+D#3	310ms
+2,,	140ms
+3,	270ms
+C#3	110ms
+A#2	210ms
+3,	100ms
+2,,	120ms
+F#2	200ms
+1,,	90ms
+G#2	100ms
+A#2	120ms
+2,,	310ms
+1,,	100ms
+G#2	210ms
+G#2	90ms
+1,,	200ms
+1,,	180ms
+G#2	130ms
+1,,	120ms
+G#2	170ms
+G#2	210ms

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "melody-app-industrial"
+version = "0.1.0"
+description = "Industrial-grade melody & harmony transcription pipeline"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "you"}]
+dependencies = [
+  "numpy>=1.20",
+  "scipy>=1.8",
+  "pretty_midi>=0.2.10",
+]
+
+[project.scripts]
+melody_app = "melody_app.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["melody_app*"]

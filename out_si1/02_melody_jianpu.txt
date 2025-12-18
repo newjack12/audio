@@ -1,0 +1,26 @@
+# Key: Bmin (confidence=0.020)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+1,,	116ms
+1,,	174ms
+2,	93ms
+C3	151ms
+3,	128ms
+6,,	163ms
+G#2	93ms
+A#2	116ms
+1,,	128ms
+2,	244ms
+3,	255ms
+G#2	348ms
+1,,	383ms
+C3	104ms
+2,	128ms
+C3	104ms
+3,	174ms
+D#3	139ms
+3,	430ms
+5,	337ms
+6,	128ms
+5,	128ms
+3,	372ms

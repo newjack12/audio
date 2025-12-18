@@ -1,0 +1,17 @@
+# Key: Fmin (confidence=0.014)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+1,	221ms
+1,	255ms
+6,	151ms
+D3	116ms
+5,	290ms
+6,	197ms
+3,,	650ms
+4,,	116ms
+5,	174ms
+D3	255ms
+1,	302ms
+D3	290ms
+5,	81ms
+5,	639ms

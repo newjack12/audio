@@ -1,0 +1,21 @@
+# "Best" stack (optional). Some of these are heavy.
+# If you hit installation issues on Windows, start from requirements_min.txt and add one by one.
+
+pretty_midi>=0.2.10
+numpy>=1.20
+scipy>=1.8
+
+# Polyphonic note transcription
+basic-pitch
+
+# Monophonic vocal/humming pitch
+crepe
+librosa
+
+# SOTA piano transcription (PyTorch)
+# Install torch first (CPU or CUDA build), then:
+# piano_transcription_inference
+piano_transcription_inference
+
+# Harmony Transformer chords (optional)
+omnizart
