@@ -1,0 +1,30 @@
+# Key: F#min (confidence=0.006)
+# Format: NOTE(or degree) <TAB> duration_ms
+
+A2	116ms
+D3	197ms
+F3	209ms
+G3	174ms
+A#2	337ms
+C#3	221ms
+F3	186ms
+G3	174ms
+A2	244ms
+E3	232ms
+F#3	221ms
+G3	290ms
+A3	441ms
+F#3	511ms
+C3	104ms
+G3	163ms
+A#2	186ms
+C#3	255ms
+E3	209ms
+F#3	139ms
+A#2	267ms
+C#3	232ms
+D#3	197ms
+D3	290ms
+D#3	93ms
+C#3	302ms
+C#3	174ms

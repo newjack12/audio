@@ -64,7 +64,7 @@ python -m melody_app.cli <你的音频文件> --out out_dir --mode voice --engin
 
 ```bash
 python -m melody_app.cli test-hu4.m4a --mode voice --engine auto --chords none --out out_hu4_v3
- python -m melody_app.cli test-hu4.m4a --mode voice --engine pyin --out out_hu4_v4
+ python -m melody_app.cli test-hu5.m4a --mode voice --engine pyin --out out_hu5
 
 
 ```

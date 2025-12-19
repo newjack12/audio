@@ -1,4 +1,5 @@
 from __future__ import annotations
+from .backends.rmvpe_backend import RmvpeConfig, extract_f0_rmvpe
 
 import csv
 from pathlib import Path
