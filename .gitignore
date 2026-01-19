@@ -1,21 +1,59 @@
-# Python cache
+############################
+# Python
+############################
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+############################
+# AI / ML artifacts
+############################
 # Model weights (DO NOT COMMIT)
 *.pt
 *.pth
 *.onnx
-RMVPE/
+*.ckpt
 
-# Audio outputs
+# External model directories
+RMVPE/
+models/
+checkpoints/
+
+############################
+# Audio / generated outputs
+############################
 out_*/
+outputs/
+results/
+
 *.wav
 *.mp3
 *.m4a
 *.mid
+*.flac
 
-# OS
+############################
+# Logs / temp
+############################
+*.log
+*.tmp
+*.cache
+
+############################
+# IDE / OS
+############################
+.idea/
+.vscode/
+
 .DS_Store
 Thumbs.db
