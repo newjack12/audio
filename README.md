@@ -1,104 +1,127 @@
-# melody_app_industrial
 
-> 工业级旋律/和声转写（人声哼唱、弦乐器、钢琴），可在 Windows + conda 环境运行。
-ffmpeg -i test-hu2.m4a -ac 1 -ar 44100 test-hu2.wav
-## 你会得到什么
 
-- **02_melody.mid**：主旋律 MIDI（单轨，适合直接进 DAW/MuseScore）
-- **02_melody.json / txt**：可读结构化结果 + 音名 + 简谱
-- **03_preview_mix.wav**：原音频 + 旋律合成的快速试听（不用 DAW 就能听对不对）
-- **04_chords.mid / 04_chords.csv**：可选输出和弦（模板基线或 Omnizart）
+### 📄 README.md
 
-## 安装（与你的 conda 环境兼容）
+````markdown
+# Melody App (Industrial Prototype)
 
-1) 进入你的环境：
+This project is an **industrial-style prototype** for automatic **melody and chord transcription**
+from audio signals (human humming/voice, string instruments, piano).
+
+⚠️ **Important note**  
+This project was **partially developed with the assistance of AI tools** (for architecture design,
+algorithm integration, and code generation).  
+It is **not a finished product** and is still **under active improvement**.
+
+---
+
+## 🎯 Project Objectives
+
+- Extract **main melody** from:
+  - Human voice / humming
+  - String instruments (violin, guitar – monophonic)
+  - Piano (polyphonic)
+- Export results in **musically usable formats**
+- Provide a **quick audio preview** to validate transcription quality
+
+---
+
+## ✨ Main Features
+
+- 🎼 **Melody extraction**
+  - Output as MIDI (`.mid`)
+  - Note names and numeric notation (`.json`, `.txt`)
+- 🎹 **Optional chord estimation**
+  - Template-based chords
+  - Omnizart-based chords (if available)
+- 🔊 **Preview audio**
+  - Original audio mixed with synthesized melody
+- 🔄 **Automatic backend selection**
+  - Uses the best available engine depending on installed libraries
+
+---
+
+## 📁 Output Files
+
+After running the program, you may obtain:
+
+- `02_melody.mid` – main melody (single track)
+- `02_melody.json / txt` – structured note information
+- `03_preview_mix.wav` – audio preview (original + melody)
+- `04_chords.mid / csv` – optional chord transcription
+
+---
+
+## 🛠 Environment
+
+- OS: **Windows**
+- Python: **Conda environment**
+- Audio processing via **ffmpeg**
+
+---
+
+## 🚀 Installation
+
+Activate your environment:
 
 ```bash
 conda activate basicpitch
-```
+````
 
-2) 确保安装 ffmpeg（你环境里已经有）：
-
-```bash
-conda install -c conda-forge ffmpeg
-```
-
-3) 安装必要依赖：
+Install dependencies:
 
 ```bash
-python -m pip install -U pip
 python -m pip install -r requirements_min.txt
 ```
 
-4) （推荐）安装更强的后端（可选）：
+Optional (stronger models):
 
 ```bash
-# 人声/哼唱的 SOTA 单音高跟踪（更稳）
-python -m pip install crepe
-
-# pYIN 作为传统强基线
-python -m pip install librosa
-
-# 钢琴转写更强（Onsets & Frames 类系）
-python -m pip install torch
-python -m pip install piano_transcription_inference
-
-# 和弦转写（可选，若依赖冲突可跳过，使用 template 版本即可）
-python -m pip install omnizart
+pip install crepe librosa torch piano_transcription_inference omnizart
 ```
 
-> 说明：所有后端都是 **可选的**，项目会自动选择已安装的最优后端；缺哪个就自动降级。
+> All advanced backends are **optional**.
+> The system will automatically fall back if a dependency is missing.
 
-## 运行
+---
 
-在项目根目录（README 所在目录）执行：
+## ▶️ Usage
+
+Basic command:
 
 ```bash
-python -m melody_app.cli <你的音频文件> --out out_dir --mode voice --engine auto --chords template
-
+python -m melody_app.cli input.wav --out out_dir --mode voice --engine auto
 ```
 
-### 常用场景
+Examples:
 
-- **人声/哼唱（推荐）**：
+**Voice / humming**
 
 ```bash
-python -m melody_app.cli test-hu4.m4a --mode voice --engine auto --chords none --out out_hu4_v3
- python -m melody_app.cli test-hu5.m4a --mode voice --engine pyin --out out_hu5
-
-
+python -m melody_app.cli test.m4a --mode voice --engine auto
 ```
 
-- **弦乐器（小提琴/吉他单旋律等）**：
+**String instruments**
 
 ```bash
-python -m melody_app.cli input.wav --mode string --engine auto
+python -m melody_app.cli input.wav --mode string
 ```
 
-- **钢琴（更强的钢琴模型）**：
+**Piano**
 
 ```bash
-python -m melody_app.cli piano.wav --mode piano --engine auto --device cpu --chords template
+python -m melody_app.cli piano.wav --mode piano --device cpu
 ```
 
-- **强制使用 Basic Pitch（通用多音符转写）**：
+---
 
-```bash
-python -m melody_app.cli input.wav --mode poly --engine basic_pitch
-```
+## 🚧 Current Limitations
 
-- **输出和弦（Omnizart，若已安装）**：
+* Chord detection accuracy is limited
+* No graphical interface
+* Performance depends on audio quality
+* Models are not fine-tuned for all instruments
 
-```bash
-python -m melody_app.cli input.wav --mode poly --engine basic_pitch --chords omnizart
-```
+---
 
-## 输出目录说明
-
-- `00_preprocessed_44100.wav`：统一预处理后的音频（用于试听/稳定推理）
-- `01_raw_transcription.mid`：多音符转写结果（Basic Pitch / piano_transcription_inference）
-- `01_pitch_track.csv`：单音高轨迹（CREPE/pYIN 路径才会有）
-- `02_melody.*`：最终主旋律
-- `03_preview_*`：试听
-- `04_chords.*`：和声/和弦（可选）
 

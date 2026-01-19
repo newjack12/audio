@@ -30,7 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--engine",
         type=str,
         default="auto",
-        choices=["auto", "crepe", "pyin", "basic_pitch", "piano_transcription"],
+        choices=["auto", "crepe", "pyin", "rmvpe", "basic_pitch", "piano_transcription"],
         help="推理后端。auto 会按 mode 选择最优可用后端。",
     )
 

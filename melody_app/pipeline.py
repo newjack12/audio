@@ -100,8 +100,9 @@ def run_pipeline(
     raw_notes = []
 
     # --- 1) Transcribe or extract pitch ---
-    if engine in ("crepe", "pyin"):
+    if engine in ("crepe", "pyin", "rmvpe"):
         # Monophonic pitch tracking -> notes
+
         if engine == "crepe":
             pre = out_dir / "00_preprocessed_16000.wav"
             preprocess_to_wav(
@@ -116,7 +117,8 @@ def run_pipeline(
                 ),
             )
             times, f0, voiced, conf = extract_f0_crepe(pre, cfg=CrepeConfig())
-        else:
+
+        elif engine == "pyin":
             pre = out_dir / "00_preprocessed_22050.wav"
             preprocess_to_wav(
                 input_audio=input_audio,
@@ -130,6 +132,25 @@ def run_pipeline(
                 ),
             )
             times, f0, voiced, conf = extract_f0_pyin(pre, cfg=PyinConfig())
+
+        elif engine == "rmvpe":
+            # RMVPE prefers 16k / 40k, but 16k is enough and faster
+            pre = out_dir / "00_preprocessed_16000.wav"
+            preprocess_to_wav(
+                input_audio=input_audio,
+                output_wav=pre,
+                spec=PreprocessSpec(
+                    sr=16000,
+                    highpass_hz=80,
+                    lowpass_hz=8000 if mode in ("voice", "humming") else None,
+                    denoise=False,
+                    loudnorm=True,
+                ),
+            )
+            times, f0, voiced, conf = extract_f0_rmvpe(
+                pre,
+                cfg=RmvpeConfig(device=device),
+            )
 
         _write_pitch_csv(out_dir / "01_pitch_track.csv", times, f0, voiced, conf)
 
